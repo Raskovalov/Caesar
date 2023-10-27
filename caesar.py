@@ -3,7 +3,8 @@
 class Language:
     def __init__(self) -> None:
         pass 
-
+    
+    # Получаем алфавит
     def language(self, a: str, b: str, c:str) -> list:
         list_ru: list = []
         for i in range(ord(a), ord(b)):
@@ -18,6 +19,7 @@ class Language:
     def en(self) -> list:
         return self.language('a','z','z')
     
+    # Смотрим какой язык используется
     def determine(self, line: str) -> str:
         for i in self.ru():
             if i == line[0]:
@@ -37,6 +39,7 @@ class Caesar():
         res: str = ''
         list_len: list = []
 
+        # Проверка на язык
         if self.lan.determine(self.line) == 'ru':
             list_len = self.lan.ru()
         else:
@@ -44,6 +47,7 @@ class Caesar():
 
         len_number = len(list_len)
 
+        # Проверка на словосочетания или строку
         if len(self.line.split(' ')) == 1:
             for i in self.line:
                 x = 0
@@ -52,6 +56,7 @@ class Caesar():
                         break
                     x += 1
                 
+                # Кодируем или Декодируем
                 if self.ev == 'code':
                     number = x + self.number
                 else:
@@ -92,5 +97,12 @@ class Caesar():
                 res += i + ' '
             
             print(res)
-        
-Caesar('рдьд йпд одьч ч игим рмьм', 4, 'decode').caesar()
+
+'''
+
+1 параметр - строка или слово
+2 параметр - сдвиг ключа
+3 параметр - кодируем(code) или декодируем(decode)
+
+'''
+Caesar('маша ела кашу сидя у окна', 4, 'code').caesar()
