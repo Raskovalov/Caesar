@@ -85,7 +85,7 @@ class Caesar():
                     else:
                         number = x - self.number
                     
-                    if number <= len_number:
+                    if number < len_number:
                         res += list_len[number]
                     else:
                         res += list_len[number - len_number]
@@ -105,4 +105,5 @@ class Caesar():
 3 параметр - кодируем(code) или декодируем(decode)
 
 '''
-Caesar('маша ела кашу сидя у окна', 4, 'code').caesar()
+
+Caesar('широкое распространение получила разновидность маршрутной перестановки', 1, 'code').caesar()
